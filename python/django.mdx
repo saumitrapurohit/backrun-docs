@@ -1,0 +1,64 @@
+---
+title: 'Django'
+description: 'Learn how to integrate the Backrun Python SDK into your django application'
+---
+
+<Tip>
+  You need a [Backrun.io](https://app.backrun.io/auth/signup) account and project for your
+  application to go live.
+</Tip>
+
+
+## Install
+Install the Backrun Python SDK using pip:
+
+```bash
+pip3 install --upgrade backrun-sdk
+```
+
+## Configure
+
+Initialize the SDK in your project's settings file
+
+```python settings.py
+import backrun_sdk
+
+backrun_sdk.init(
+    # add the public key for the project
+    api_key="<project_api_key>",
+    always_eager=True,
+)
+```
+
+
+Add the django runner to your urls
+
+```python urls.py
+from backrun_sdk.django import serve
+
+urlpatterns = [
+    path("admin/", admin.site.urls),
+    path("api/backrun/", serve),
+]
+```
+
+
+## Add tasks
+
+Add the @task decorator to any function in your project to make it a background task. Typical django convention is to create a tasks.py file
+
+```python <your_app>/tasks.py
+from backrun_sdk import task
+
+@task()
+def ping():
+    return "PONG"
+```
+
+## Call them from anywhere
+```python <your_app>/views.py
+def request_handler(request, *args, **kwargs):
+    ...
+    ping.delay()
+    ...
+```
