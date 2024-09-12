@@ -2,19 +2,20 @@
   "$schema": "https://mintlify.com/schema.json",
   "name": "Backrun Documentation",
   "logo": {
-    "dark": "/logo/dark.svg",
-    "light": "/logo/light.svg",
+    "dark": "/logo/logo-light.png",
+    "light": "/logo/logo-light.png",
     "href": "https://backrun.io"
   },
-  "favicon": "/favicon.svg",
+  "favicon": "/logo/favicon.png",
   "colors": {
-    "primary": "#0D9373",
-    "light": "#07C983",
-    "dark": "#0D9373",
-    "anchors": {
-      "from": "#0D9373",
-      "to": "#07C983"
-    }
+    "primary": "#2563EB",
+    "light": "#E8EFFF",
+    "dark": "#2563EB"
+  },
+  "theme": "venus",
+  "layout": "sidenav",
+  "modeToggle": {
+    "isHidden": true
   },
   "topbarLinks": [
     {
@@ -28,7 +29,8 @@
   ],
   "topbarCtaButton": {
     "name": "Signup",
-    "url": "https://app.backrun.io/auth/signup"
+    "url": "https://app.backrun.io/auth/signup",
+    "style": "pill"
   },
   "tabs": [
 
